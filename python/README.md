@@ -1,9 +1,8 @@
 # :panda_face: 파이썬 기초 공부 :panda_face:
 
 ## :seedling: 파이썬 기초를 다지기 위해 간단히 정리해놓은 공부방
-<br>
 
-## :penguin: 연산자와 자료형
+### :penguin: 연산자와 자료형
 + 연산자  
     `//`: '/'와는 다르게 나눗셈의 몫을 구해준다. (소수점 이하는 버림)  
     `**`: 거듭 제곱
@@ -13,7 +12,7 @@
     - 숫자 0
     - None이라는 '값이 없음'을 나타내는 키워드
 
-## :pig2: 문자열 메소드  
+### :pig2: 문자열 메소드  
 + `lower()`: 모든 문자 소문자  
 + `upper()`: 모든 문자 대문자
 + `capitalize()`: 첫 글자만 대문자
@@ -25,21 +24,21 @@
 + `strip()`: 문자열 앞뒤로 불필요한 문자 삭제( default는 빈 칸 )
 + `find()`: 특정 글자 찾기( 인덱스 반환 )  
 
-## :tiger2: 문자열  포맷  
+### :tiger2: 문자열  포맷  
 + `{} + format`: 괄호 안에 변수 대입 가능
 + `{N} + format`: N은 숫자인데 괄호 안에 숫자를 지정해서 변수의 순서 지정 가능
 + `f-string`: print(f'문자열 {}, {}')의 형태로 괄호 안에 변수 바로 사용 가능  
 
-## :cow2: List와 Tuple  
-### 두 자료형의 가장 큰 차이점은 **수정 여부**, Tuple은 수정 이외에 List와 거의 동일하지만 할당은 할 수 있어도 복사는 불가능
-+ `List`  
-    `append()`: List 마지막에 값 추가  
-    `remove()`: List 안에 인자로 주어진 값 삭제  
-    `extend()`: 두 List 합치기  
-    `copy()`: List 복사  
-    `index()`: 어떤 값이 어디에 있는지 반환 ( Tuple도 가능 )  
+### :cow2: List와 Tuple  
+#### 두 자료형의 가장 큰 차이점은 **수정 여부**, Tuple은 수정 이외에 List와 거의 동일하지만 할당은 할 수 있어도 복사는 불가능
++ List
+  - `append()`: List 마지막에 값 추가
+  - `remove()`: List 안에 인자로 주어진 값 삭제
+  - `extend()`: 두 List 합치기
+  - `copy()`: List 복사
+  - `index()`: 어떤 값이 어디에 있는지 반환 ( Tuple도 가능 )  
 
-+ `Tuple`  
++ Tuple  
     JavaScript의 **구조분해할당**과 같은 형식으로 **UnPacking**을 할 수 있음  
     ```python
     numbers = (1,2,3,4)
@@ -47,7 +46,7 @@
     (one, two, *others) = numbers => 
     개수가 맞지 않는 경우 others에는 List 자료형태로 나머지가 들어감
     ```
-## :dog2: Set  
+### :dog2: Set  
 + `A.intersection(B)`: A, B Set간 공집합을 구할 때 사용 
 + `A.union(B)`: A, B Set간 합집합을 구할 때 사용
 + `A.differenct(B)`: A Set에서 B Set에 있는 값을 뺀 결과
