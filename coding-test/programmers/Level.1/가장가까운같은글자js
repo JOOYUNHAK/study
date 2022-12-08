@@ -1,0 +1,20 @@
+function solution(s) {
+    var answer = [];
+
+    let charMap = new Map();
+
+    for( let i = 0; i < s.length; i++ ) {
+        const eachChar = s[i];
+        const charIndex = charMap.get(eachChar);
+        if( charIndex || charIndex == 0 ) {
+            const distance = i - charIndex;
+            charMap.set(eachChar, i);
+            answer.push(distance);
+            continue;
+        }
+        charMap.set(eachChar, i);
+        answer.push(-1);
+    }
+
+    return answer;
+}
