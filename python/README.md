@@ -56,6 +56,21 @@
 + `update`: 다른 세트의 값들을 더한다 ( 계산 x, 추가 )
 + `pop()`: 임의의 요소 하나 반환 이후 제거, **주의할 점**은 비어있을 때 pop()을 할 경우 오류를 낸다.
 
+### :bear: for문
+#### 반복 범위: `range([start], end, [step])` start ~ end - 1까지 step만큼 건너띄면서 반복 ( start, step은 Option )
+#### 반복 대상: `List` `Tuple` `Dictionary` `문자열`이 올 수 있으며 `Dictionary`같은 경우 items 메소드를 활용하여 `Key`, `Value`를 전부 받을 수 있다.
+
+### :boar: List Comprehension
+#### `[변수 활용 for 변수 in 반복대상 if 조건]`: 변수 활용에 `변수 + 1` `변수 + 문자열`등 반복 대상을 변경해 줄 수 있음
+
+### :monkey_face: 함수
++ `키워드`: 함수에 **default** 값이 여러개로 설정 되어 있을 때, 특정 **default** 값만 변경하여 함수를 호출하고 싶으면, 해당 `키워드` 값 변경해서 전달
++ `가변인자`: `*`를 이용하여 인자를 받으면 호출하는 쪽의 인자가 일정하지 않아도 됨
+
+### :elephant: 파일 입출력
++ `with`: 파일을 열 때 `with`와 함께 사용하면 `close()`를 호출하지 않아도 자동으로 파일을 닫아준다.  
+    **사용법**: `with open('파일명', flag, encoding) as 연 파일 이름을 담을 변수명:` 
+
 
 
 
