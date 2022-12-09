@@ -69,7 +69,37 @@
 
 ### :elephant: 파일 입출력
 + `with`: 파일을 열 때 `with`와 함께 사용하면 `close()`를 호출하지 않아도 자동으로 파일을 닫아준다.  
-    **사용법**: `with open('파일명', flag, encoding) as 연 파일 이름을 담을 변수명:` 
+    **사용법**: `with open('파일명', flag, encoding) as 연 파일 이름을 담을 변수명:`
+### :honeybee: 클래스
++ `isinstance(객체, 클래스)`: 주어진 객체가 클래스로부터 만들어진 객체가 맞는지 여부
++ `__init__`: 일종의 생성자 개념 self는 this와 같은 뜻인 것 같다. 
+```python
+class 클래스명(부모클래스): # 부모클래스를 상속 받기도 가능
+    def __init__(self, 변수): #self에 객체를 넘기는 것도 가능하다
+        super().__init__() #상속을 받으며 부모클래스의 init 호출
+        self.변수 = 값
+```
+### :ant: 예외처리
+try문은 except문이나 finally문과 짝을 이뤄 수행 되어야 함.
+```python
+try:
+    #수행 문장
+except:
+    #에러 처리 Error Type으로 여러개의 except 처리 가능
+else:
+    #정상 수행 동작
+finally:
+    #무조건 실행할 동작
+```
+
+### :hatching_chick: 모듈과 패키지
++ `모듈`: 하나의 파이썬 파일  
+모듈 import 하는 방법: **import 모듈**, **from 모듈 import 변수, 함수 또는 클래스**
++ `패키지`: 모듈이 여러개 모인 것
+패키지 가져오는 방법: **import 패키지.모듈**, **from 패키지 import 모듈**
+
+
+
 
 
 
