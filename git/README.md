@@ -24,3 +24,13 @@
 
 ## :leopard: 3-way merge와fast-forward merge의 차이
 `3-way merge`와 `fast-forward merge`의 가장 큰 차이는 merge commit이 생성되는지의 여부이다. 3-way merge는 merge commit이 생성되고 2개의 부모를 가르키게 된다.
+
+## :joy_cat: reset과 revert
+이전 커밋으로 되돌리고 싶을 때 사용할 수 있는 명령어는 `reset`과 `revert`가 있다.  
+`reset`은 돌아간 이후 커밋들은 삭제가 되니 혼자 작업하는 브랜치에서만. `revert`는 삭제 이력이 남으니 협업할 떄 유용
+
+## :crying_cat_face: git branch -f 
+특정 브랜치를 특정 커밋에 보내고 싶을 때 사용 가능한 명령어. `git branch -f 브랜치명 커밋해시값`
+
+## :scream_cat: git cherry-pick
+현재 **checkout**되어 있는 브랜치에 원하는 커밋들만 복사본을 새로 만든다. 따라서 이전의 특정 커밋들만 가져오고 싶을 때 `git rebase -i`로 대체해서 사용할 수 있다.
