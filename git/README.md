@@ -34,3 +34,12 @@
 
 ## :scream_cat: git cherry-pick
 현재 **checkout**되어 있는 브랜치에 원하는 커밋들만 복사본을 새로 만든다. 따라서 이전의 특정 커밋들만 가져오고 싶을 때 `git rebase -i`로 대체해서 사용할 수 있다.
+
+## :smile: git tag (tag이름) (위치)
+`tag`는 닻과 같은 역할을 하며 이 `tag`를 **checkout**해도 작업을 추가적으로 진행할 수 없다.  
+지정한 위치에 태그를 남기며 커밋 위치를 지정해주지 않으면 현재 **HEAD**에 태그를 붙이게 된다.
+
+## :smile: git describe (ref)
+태그를 기준으로 묘사해주는데 **ref**를 지정하지 않으면 **HEAD**를 기준으로 `describe`가 된다.  
+결과는 `tag_numCommits_g+hash` 순으로 나타나며, **tag**는 가장 가까운 조상커밋, **numCommits**은 몇 커밋 떨어져 있는지, **g+hash**는 커밋의 해시이다.
+
