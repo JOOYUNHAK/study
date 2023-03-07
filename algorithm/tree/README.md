@@ -24,6 +24,13 @@
 - 삭제하려는 노드가 `하나의 서브트리`만 가지고 있는 경우: 자기 노드는 삭제하고 서브 트리만 자기 노드의 부모 노드에 붙여주면 됨
 - 삭제하려는 노드가 `두개의 서브트리`를 가지고 있는 경우: 왼쪽 서브트리에서 가장 큰 값(오른쪽에 있는 노드)이나 오른쪽 서브트리에서 가장 작은 값(가장 왼쪽에 있는 노드)를 자기 노드의 위치로 이동해주면 됨
 
+### 트리의 순회
+- `전위 순회`: Root 노드 방문 -> 왼쪽 서브 트리 전위 순회 -> 오른쪽 서브 트리 전위 순회
+- `중위 순회`: 왼쪽 서브 트리 중위 순회 -> Root 노드 방문 -> 오른쪽 서브 트리 중위 순회
+- `후위 순회`: 왼쪽 서브 트리 후위 순회 -> 오른쪽 서브 트리 후위 순회 -> Root 노드 방문
+
+트리에서 `DFS`와 `BFS`를 언제 사용할지는 `공간복잡도`를 생각해서 사용하자
+
 ```javascript
 class Node {
     constructor(data) {
@@ -165,7 +172,55 @@ class BinarySearchTree {
             parent.left = current.left : parent.right = current.right
         return true
     }
+
+    /**
+     * 너비 우선 탐색
+     * @returns 순서대로 방문한 노드의 데이터
+     */
+    bfs() {
+        let queue = [], visitedNode = [];
+        queue.push(this.root); // 루트 노드를 queue 첫번째로 추가
+        while( queue.length ) {
+            const firstNode = queue.shift();
+            /* 자식 노드가 있으면 queue에 추가 */
+            if( firstNode.left ) queue.push(firstNode.left);
+            if( firstNode.right ) queue.push(firstNode.right);
+            visitedNode.push(firstNode.data); // 방문한 노드 처리
+        }
+        return visitedNode;
+    }
+
+    /* 전위, 중위, 후위의 3가지 순회방법을 깊이 우선 탐색으로 구현 */
+    dfsByPreOrder() {
+        let visitedNode = [];
+        function preOrderTraverse(node) {
+            visitedNode.push(node.data);
+            if( node.left ) preOrderTraverse( node.left );
+            if( node.right ) preOrderTraverse( node.right );
+        }
+        return visitedNode;
+    }
+
+    dfsByInOrder() {
+        let visitedNode = [];
+        function inOrderTraverse(node) {
+            if( node.left ) inOrderTraverse(node.left);
+            visitedNode.push(node.data);
+            if( node.right ) inOrderTraverse(node.right);
+        }
+        inOrderTraverse(this.root);
+        return visitedNode;
+    }
+
+	dfsByPostOrder() {
+		let visitedNode = [];
+		function postOrderTraverse(node) {
+			if( node.left ) postOrderTraverse(node.left);
+			if( node.right ) postOrderTraverse(node.right);
+			visitedNode.push(node.data);
+		}
+		postOrderTraverse(this.root);
+		return visitedNode;
+	}
 }
-
-
 ```
