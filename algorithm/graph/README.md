@@ -19,7 +19,7 @@
 ### 구현방식에는 `인접 행렬`과 `인접 리스트`로 구현할 수 있는데 특정 간선에 대해서 접근은 `인접 행렬`, 넓게 퍼져있는 데이터를 다룰 때는 `인접 리스트`가 좋은 방안이지만 **공간차지**에 대해서는 실제 연결되어 있는 간선의 정보만 담으면 되는 `인접 리스트`가 훨씬 좋은 방법이다.
 
 ```javascript
-class Graph {
+    class Graph {
     constructor() { this.adjacencyList = {}; }
 
     /**
@@ -90,6 +90,74 @@ class Graph {
             this.adjacencyList[eachVertex] = this.adjacencyList[eachVertex].filter(removeVertex => vertex !== removeVertex);
         })
         delete this.adjacencyList[vertex];
+    }
+
+    /**
+     * DFS By Recursive 재귀
+     * @param start DFS 순환 시작점 
+     * @returns 순환한 순서
+     */
+    dfsByRecursive(start) {
+        const visited = {}; // 방문현황
+        const result = []; // 순서 결과
+        const adjacencyList = this.adjacencyList; // 그래프
+
+        function dfs(vertex) {
+            if( visited[vertex] ) return null; // 방문한 노드면 return
+            result.push(vertex); // 출력 결과에 포함
+            visited[vertex] = true; // 방문처리
+            adjacencyList[vertex].forEach( eachVertex => dfs(eachVertex) );
+        }
+        dfs(start);
+        return result;
+    }
+    
+    /**
+     * DFS By Iterable
+     * @param start DFS 순회 시작점
+     * @returns 순회 결과
+     */
+    dfsByIterable(start) {
+        const visited = {};
+        const stack = [start];
+        const result = [];
+
+        visited[start] = true; // 시작점 방문처리
+        while( stack.length ) { 
+            const currentVertex = stack.pop();
+            result.push(currentVertex);
+            this.adjacencyList[currentVertex].forEach( eachVertex => {
+                if( !visited[eachVertex] ) {
+                    visited[eachVertex] = true;
+                    stack.push(eachVertex);
+                }
+            })
+        }
+        return result;
+    }
+
+    /**
+     * BFS
+     * @param start BFS 순환 시작점 
+     * @returns 순환 결과
+     */
+    bfs(start) {
+        const visited = {};
+        const stack = [start];
+        const result = [];
+
+        visited[start] = true;
+        while( stack.length ) {
+            const currentVertex = stack.shift();
+            result.push(currentVertex)
+            this.adjacencyList[currentVertex].forEach( eachVertex => {
+                if( !visited[eachVertex] ) {
+                    visited[eachVertex] = true;
+                    stack.push(eachVertex);
+                }
+            })
+        }
+        return result;
     }
 }
 ```
