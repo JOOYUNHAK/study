@@ -1,0 +1,34 @@
+function solution(s) {
+
+    const length = s.length;
+
+    let start = false;
+    let count = 0;
+    let partWord = '';
+    const obj = {};
+
+    for( let i = 1; i < length; i++ ) {
+        if( s[i] === '{' ) {
+            start = true;
+            continue;
+        }
+        if( s[i] === '}' && i != length - 1) {
+            start = false;
+            obj[count] = partWord.split(',');
+            partWord = '';
+            count = 0;
+            continue;
+        }
+        if( !start ) continue;
+
+        if( s[i] !== ',' ) count++; 
+        partWord = partWord + s[i];
+    }
+
+    const set = new Set();
+    for( const valuesArr of Object.values(obj) ) {
+        valuesArr.map( value => set.add(+value));
+    }
+
+    return [...set];
+}
